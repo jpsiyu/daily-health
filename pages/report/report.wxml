@@ -1,0 +1,29 @@
+<!-- pages/report/report.wxml -->
+<div class="report">
+    <div class="share">
+        <p>Score: 80</p>
+        <button>Share</button>
+    </div>
+    <div class="calculate">
+        <div class="cal-item">
+            <p>Body</p>
+            <p>+20</p>
+        </div>
+        <div class="cal-item">
+            <p>Mental</p>
+            <p>+20</p>
+        </div>
+        <div class="cal-item">
+            <p>Env</p>
+            <p>+20</p>
+        </div>
+        <div class="cal-item">
+            <p>Other</p>
+            <p>+20</p>
+        </div>
+        <div class="cal-item">
+            <p>Total</p>
+            <p>+20</p>
+        </div>
+    </div>
+</div>

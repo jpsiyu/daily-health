@@ -1,0 +1,45 @@
+/* pages/main/main.wxss */
+
+.main{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.score{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.score p{
+    font-size: 4rem;
+    font-weight: bolder;
+}
+
+.project{
+    flex: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.project-item{
+    background-color: lightgray;
+    color: green;
+    width: 98%;
+    height: 98%;
+    align-self: center;
+    justify-self: center;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.project-item:active{
+    background-color: green;
+    color: white;
+}

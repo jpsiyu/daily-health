@@ -1,0 +1,19 @@
+<div class="main">
+    <div class="score">
+        <p>82</p>
+    </div>
+    <div class="project">
+        <div class="project-item" bindtap="onItemBodyTap">
+            <p>Body</p>
+        </div>
+        <div class="project-item" bindtap="onItemMentalTap">
+            <p>Mental</p>
+        </div>
+        <div class="project-item" bindtap="onItemEnvTap">
+            <p>Env</p>
+        </div>
+        <div class="project-item" bindtap="onItemOtherTap">
+            <p>Other</p>
+        </div>
+    </div>
+</div>
