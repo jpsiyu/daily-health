@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    'midOn': true,
+    'gif': '/images/tiger.gif',
   },
 
   /**
@@ -80,4 +81,25 @@ Page({
     console.log('other...')
   },
 
+  onItemMidTap: function () {
+    const state = !this.data.midOn
+    const g = this.chooseGif(100)
+    this.setData({
+      midOn: state,
+      gif: g,
+    })
+  },
+
+  chooseGif: function(life){
+    const r = Math.random()
+    if(r < 0.25){
+      return '/images/tiger.gif'
+    }else if(r < 0.5){
+      return '/images/horse.gif'
+    }else if( r < 0.75){
+      return '/images/dog.gif'
+    }else{
+      return '/images/grim.gif'
+    }
+  }
 })
