@@ -1,3 +1,5 @@
+const app = getApp()
+
 // pages/main/main.js
 Page({
 
@@ -7,13 +9,13 @@ Page({
   data: {
     'midOn': true,
     'gif': '/images/tiger.gif',
+    percent: undefined,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
 
   /**
@@ -27,6 +29,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    const percent = app.appdata.percent()
+    const gif = app.appdata.getGif()
+    this.setData({
+      percent: `${percent*100}%`,
+      gif: gif,
+    })
 
   },
 
@@ -91,23 +99,8 @@ Page({
 
   onItemMidTap: function () {
     const state = !this.data.midOn
-    const g = this.chooseGif(100)
     this.setData({
       midOn: state,
-      gif: g,
     })
   },
-
-  chooseGif: function (life) {
-    const r = Math.random()
-    if (r < 0.25) {
-      return '/images/tiger.gif'
-    } else if (r < 0.5) {
-      return '/images/horse.gif'
-    } else if (r < 0.75) {
-      return '/images/dog.gif'
-    } else {
-      return '/images/grim.gif'
-    }
-  }
 })

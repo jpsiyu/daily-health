@@ -1,13 +1,25 @@
 <!-- pages/project/project.wxml -->
 <div class="project">
-    <div class="accumulate"></div>
+    <div class="accumulate">
+        <div class="energy-container">
+            <div class="energy-cover" style="height:{{percent}}">
+                <image src="/images/green.gif" />
+            </div>
+        </div>
+        <div wx:if="{{!finish}}" class="recover-time">
+            <p>预计恢复时间:</p>
+            <p>{{left}}</p>
+        </div>
+    </div>
     <div class="p-root">
         <div class="p-desc">
             <p>{{desc}}</p>
         </div>
         <div class="p-items">
             <div class='item' wx:for="{{cfg}}" wx:key="idx" wx:for-item="item">
-                <div bindtap="onItemTap" data-item="{{item}}"><p>{{item.name}}</p></div>
+                <div class="{{item.name==active?'item-active':'item-sleep'}}" bindtap="onItemTap" data-item="{{item}}">
+                    <p>{{item.name}}</p>
+                </div>
             </div>
         </div>
     </div>

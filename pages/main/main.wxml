@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="energy">
-        <div class="energy-cover">
+        <div class="energy-cover" style="height:{{percent}}">
             <image src="/images/green.gif" />
         </div>
     </div>

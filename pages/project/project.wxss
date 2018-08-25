@@ -9,7 +9,31 @@
 
 .accumulate{
     flex: 1;
-    background-color: chocolate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.energy-container{
+    width: 300rpx;
+    height: 300rpx;
+    overflow: hidden;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    border-radius: 50%;
+}
+
+.energy-cover{
+    width: 100%;
+    height: 30%;
+}
+
+.energy-cover image{
+    width: 100%;
+    height: 100%;
 }
 
 .p-root{
@@ -29,7 +53,7 @@
     grid-template-columns: repeat(2, 150rpx);
     grid-template-rows: repeat(2, 150rpx);
     grid-gap: 10px;
-    grid-auto-flow: column;
+    grid-auto-flow: row;
     justify-content: center;
 }
 
@@ -43,10 +67,14 @@
     display: flex;
     justify-content: center;    
     align-items: center;
-    background-color: lightgray;
 }
 
-.item div:active{
+.item-active{
     background-color: green;
     color: white;
+}
+
+.item-sleep{
+    background-color: lightgray;
+    color: black
 }

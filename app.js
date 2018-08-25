@@ -1,3 +1,4 @@
+const AppData = require('./utils/appdata')
 //app.js
 App({
   onLaunch: function () {
@@ -35,5 +36,6 @@ App({
   },
   globalData: {
     userInfo: null
-  }
+  },
+  appdata: new AppData()
 })

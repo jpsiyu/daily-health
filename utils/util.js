@@ -14,6 +14,15 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const formatSecond = (seconds) => {
+  let m = Math.floor(seconds / 60)
+  m = ('0' + m).slice(-2)
+  let s = seconds % 60
+  s = ('0' + s).slice(-2)
+  return `${m}:${s}`
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  formatSecond: formatSecond,
 }
