@@ -4,21 +4,26 @@
     </div>
     <div class="project">
         <div wx:if="{{!midOn}}" class="project-item" bindtap="onItemBodyTap">
-            <p>Body</p>
+            <p>身体</p>
         </div>
         <div wx:if="{{!midOn}}" class="project-item" bindtap="onItemMentalTap">
-            <p>Mental</p>
+            <p>心灵</p>
         </div>
         <div wx:if="{{!midOn}}" class="project-item" bindtap="onItemEnvTap">
-            <p>Env</p>
+            <p>环境</p>
         </div>
         <div wx:if="{{!midOn}}" class="project-item" bindtap="onItemOtherTap">
-            <p>Other</p>
+            <p>爱好</p>
+        </div>
+    </div>
+    <div class="energy">
+        <div class="energy-cover">
+            <image src="/images/green.gif" />
         </div>
     </div>
     <div class="project-mid" bindtap="onItemMidTap">
         <div class="{{midOn ? 'mid-on' : 'mid-off' }}">
-            <p>Rest</p>
+            <p>休息</p>
         </div>
     </div>
 </div>

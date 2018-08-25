@@ -1,0 +1,52 @@
+/* pages/project/project.wxss */
+.project{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.accumulate{
+    flex: 1;
+    background-color: chocolate;
+}
+
+.p-root{
+    flex:1;
+    display: flex;
+}
+
+.p-desc{
+    flex: 1;
+    background-color: bisque;
+}
+
+.p-items{
+    background-color: darkslategray;
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 150rpx);
+    grid-template-rows: repeat(2, 150rpx);
+    grid-gap: 10px;
+    grid-auto-flow: column;
+    justify-content: center;
+}
+
+.item{
+    height: 150rpx;
+}
+
+.item div{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    background-color: lightgray;
+}
+
+.item div:active{
+    background-color: green;
+    color: white;
+}

@@ -1,0 +1,14 @@
+<!-- pages/project/project.wxml -->
+<div class="project">
+    <div class="accumulate"></div>
+    <div class="p-root">
+        <div class="p-desc">
+            <p>{{desc}}</p>
+        </div>
+        <div class="p-items">
+            <div class='item' wx:for="{{cfg}}" wx:key="idx" wx:for-item="item">
+                <div bindtap="onItemTap" data-item="{{item}}"><p>{{item.name}}</p></div>
+            </div>
+        </div>
+    </div>
+</div>

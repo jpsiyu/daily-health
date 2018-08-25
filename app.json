@@ -3,6 +3,7 @@
     "pages/main/main",
     "pages/report/report",
     "pages/support/support",
+    "pages/project/project",
     "pages/index/index"
   ],
   "window": {

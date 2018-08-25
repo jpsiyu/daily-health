@@ -66,19 +66,27 @@ Page({
   },
 
   onItemBodyTap: function () {
-    console.log('body...')
+    wx.navigateTo({
+      url: '../project/project?p=body'
+    })
   },
 
   onItemMentalTap: function () {
-    console.log('mental...')
+    wx.navigateTo({
+      url: '../project/project?p=mental'
+    })
   },
 
   onItemEnvTap: function () {
-    console.log('env...')
+    wx.navigateTo({
+      url: '../project/project?p=env'
+    })
   },
 
   onItemOtherTap: function () {
-    console.log('other...')
+    wx.navigateTo({
+      url: '../project/project?p=other'
+    })
   },
 
   onItemMidTap: function () {
@@ -90,15 +98,15 @@ Page({
     })
   },
 
-  chooseGif: function(life){
+  chooseGif: function (life) {
     const r = Math.random()
-    if(r < 0.25){
+    if (r < 0.25) {
       return '/images/tiger.gif'
-    }else if(r < 0.5){
+    } else if (r < 0.5) {
       return '/images/horse.gif'
-    }else if( r < 0.75){
+    } else if (r < 0.75) {
       return '/images/dog.gif'
-    }else{
+    } else {
       return '/images/grim.gif'
     }
   }
