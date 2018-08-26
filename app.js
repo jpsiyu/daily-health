@@ -1,18 +1,17 @@
 const AppData = require('./utils/appdata')
+const Communicate = require('./utils/communicate')
+const Authorize = require('./utils/authorize')
+const EventListener = require('./utils/eventListener')
+
 //app.js
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
     // 登录
     wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
+      success: res => { this.communicate.requestOpenId(res.code) },
+      fail: () => util.wxAlert(res)
     })
+
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -34,8 +33,17 @@ App({
       }
     })
   },
+  onShow: function() {
+  },
+
+  onHide: function () {
+    this.communicate.postUserInfo()
+  },
   globalData: {
     userInfo: null
   },
-  appdata: new AppData()
+  appdata: new AppData(),
+  communicate: new Communicate(),
+  authorize: new Authorize(),
+  eventListener: new EventListener(),
 })

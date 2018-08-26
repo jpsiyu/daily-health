@@ -1,4 +1,4 @@
-<div class="main">
+<div wx:if="{{loaded}}" class="main">
     <div class="score">
         <image src='{{gif}}'></image>
     </div>

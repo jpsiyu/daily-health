@@ -109,13 +109,14 @@ Page({
 
   onItemTap: function (event) {
     const item = event.currentTarget.dataset.item
-    const desc = item.desc
+    let desc = item.desc
     let active = this.data.active
 
     if (!active) {
       active = item.name
     } else if (active == item.name) {
       active = ''
+      desc = defaultDesc
     } else {
       active = item.name
     }

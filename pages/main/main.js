@@ -7,15 +7,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    'midOn': true,
-    'gif': '/images/tiger.gif',
+    midOn: true,
+    gif: '/images/tiger.gif',
     percent: undefined,
+    loaded: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    app.eventListener.addEvent('loaded', this, () => {
+      this.updateAll()
+    })
   },
 
   /**
@@ -29,13 +33,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    const percent = app.appdata.percent()
-    const gif = app.appdata.getGif()
-    this.setData({
-      percent: `${percent*100}%`,
-      gif: gif,
-    })
-
+    this.updateAll()
   },
 
   /**
@@ -49,7 +47,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    app.eventListener.removeEvent('loaded', this)
   },
 
   /**
@@ -103,4 +101,16 @@ Page({
       midOn: state,
     })
   },
+
+  updateAll: function () {
+    const percent = app.appdata.percent()
+    const gif = app.appdata.getGif()
+    const loaded = app.appdata.loaded()
+    this.setData({
+      percent: `${percent * 100}%`,
+      gif: gif,
+      loaded: loaded,
+    })
+  },
+
 })

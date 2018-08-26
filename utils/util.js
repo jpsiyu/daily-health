@@ -22,7 +22,33 @@ const formatSecond = (seconds) => {
   return `${m}:${s}`
 }
 
+const alert = (content) => {
+  wx.showModal({
+    content,
+    showCancel: false,
+    success: function (res) {
+      if (res.confirm) {
+        //console.log('用户点击确定')
+      }
+    }
+  })
+}
+
+const wxAlert = (res) => {
+  wx.showModal({
+    content: '微信api: ' + res.errMsg,
+    showCancel: false,
+    success: function (res) {
+      if (res.confirm) {
+        //console.log('用户点击确定')
+      }
+    }
+  })
+}
+
 module.exports = {
   formatTime: formatTime,
   formatSecond: formatSecond,
+  alert: alert,
+  wxAlert: wxAlert,
 }

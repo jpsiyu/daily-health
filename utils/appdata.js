@@ -1,7 +1,22 @@
 class AppData {
     constructor() {
-        this.current = 80
         this.total = 180
+        this.dispearTime = 3 * 3600
+
+        this.quitTime = undefined
+        this.current = undefined
+        this.last = undefined
+    }
+
+    refreshUser(user){
+        this.last = user.point
+        this.quitTime = user.quitTime
+
+        const curTime = new Date().getTime()
+        const pass = (curTime - user.quitTime) / 1000
+        const percent = pass / this.dispearTime
+        this.current = this.last - Math.floor(this.total * percent)
+        this.current = Math.max(0, this.current)
     }
 
     increase() {
@@ -32,6 +47,10 @@ class AppData {
         } else {
             return '/images/grim.gif'
         }
+    }
+
+    loaded(){
+        return this.quitTime != undefined
     }
 }
 
