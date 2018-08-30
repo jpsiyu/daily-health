@@ -11,8 +11,8 @@ class CommunicateOptions {
 
 class Communicate {
     constructor() {
-        //this.serverUrl = 'https://qrj.qianrenju.club'
         this.serverUrl = 'https://health.qianrenju.club'
+        //this.serverUrl = 'http://health.localhost'
         this.waiting = false
     }
 

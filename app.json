@@ -1,10 +1,8 @@
 {
   "pages": [
     "pages/main/main",
-    "pages/report/report",
     "pages/support/support",
-    "pages/project/project",
-    "pages/index/index"
+    "pages/project/project"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -16,21 +14,15 @@
     "list": [
       {
         "pagePath": "pages/main/main",
-        "selectedIconPath": "images/home_select.png",
-        "iconPath": "images/home.png",
-        "text": "main"
-      },
-      {
-        "pagePath": "pages/report/report",
-        "selectedIconPath": "images/add_select.png",
-        "iconPath": "images/add.png",
-        "text": "index"
+        "selectedIconPath": "images/cat.png",
+        "iconPath": "images/cat-s.png",
+        "text": "MAIN"
       },
       {
         "pagePath": "pages/support/support",
         "selectedIconPath": "images/pigeon_select.png",
         "iconPath": "images/pigeon.png",
-        "text": "log"
+        "text": "SUPPORT"
       }
     ]
   }

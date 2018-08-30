@@ -1,12 +1,15 @@
 <!-- pages/project/project.wxml -->
 <div class="project">
     <div class="accumulate">
-        <div class="energy-container">
-            <div class="energy-cover" style="height:{{percent}}">
-                <image src="/images/green.gif" />
+        <div class="energy-place">
+            <div class="energy-container">
+                <div class="energy-cover" style="height:{{percent}}">
+                    <image src="/images/green.gif" />
+                </div>
             </div>
         </div>
         <div wx:if="{{!finish}}" class="recover-time">
+            <image src="/images/cat.png" />
             <p>预计恢复时间:</p>
             <p>{{left}}</p>
         </div>
@@ -21,6 +24,11 @@
                     <p>{{item.name}}</p>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="particle-container" wx:if="{{!finish}}">
+        <div wx:for="{{particles}}" wx:key="idx" wx:for-item="p">
+            <div wx:if="{{p.active}}" class="particle" style="left:{{p.x}}rpx; top:{{-p.y}}rpx"></div>
         </div>
     </div>
 </div>

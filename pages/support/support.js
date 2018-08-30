@@ -62,5 +62,14 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+
+  onBtnTap: function () {
+    console.log('tap')
+    wx.scanCode({
+      success: (res) => {
+        console.log(res)
+      }
+    })
+  },
 })

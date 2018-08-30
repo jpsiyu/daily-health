@@ -2,6 +2,7 @@
 
 const config = require('../../utils/config')
 const util = require('../../utils/util')
+const ParticleMgr = require('../../utils/particlmgr')
 const app = getApp()
 
 const defaultDesc = '选择右侧的项目，提升能量'
@@ -18,18 +19,21 @@ Page({
     left: undefined,
     active: undefined,
     finish: false,
+    particles: undefined,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.particleMgr = new ParticleMgr()
     const cfg = config.getConfig(options.p)
     const desc = defaultDesc
     const percent = `${app.appdata.percent() * 100}%`
     const left = util.formatSecond(app.appdata.distance())
     const finish = app.appdata.isFull()
-    this.setData({ cfg, desc, percent, left, finish })
+    this.setData({ cfg, desc, percent, left, finish, particles: this.particleMgr.particles })
+    this.animDesc(desc)
   },
 
   /**
@@ -50,14 +54,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    clearInterval(this.timer)
+    this.stopParticle()    
+    this.clearTimer()
   },
 
   /**
@@ -82,10 +86,10 @@ Page({
   },
 
   startTimer: function () {
-    if(app.appdata.isFull()) return
+    if (app.appdata.isFull()) return
 
     this.timer = setInterval(() => {
-      if(app.appdata.isFull()){
+      if (app.appdata.isFull()) {
         this.clearTimer()
         this.setData({
           finish: true
@@ -102,9 +106,9 @@ Page({
     }, 1000)
   },
 
-  clearTimer(){
-      clearInterval(this.timer)
-      this.timer = undefined
+  clearTimer() {
+    clearInterval(this.timer)
+    this.timer = undefined
   },
 
   onItemTap: function (event) {
@@ -120,13 +124,42 @@ Page({
     } else {
       active = item.name
     }
+    this.animDesc(desc)
 
     if (!active && this.timer) {
       this.clearTimer()
-    } else if(active && !this.timer) {
+      this.stopParticle()
+    } else if (active && !this.timer) {
       this.startTimer()
+      this.startParticle()
     }
-    this.setData({ select: item, desc, active })
+    this.setData({ select: item, active })
+  },
+
+  animDesc: function (desc) {
+    clearInterval(this.descTimer)
+    this.descCurrent = desc
+    this.descTemp = ''
+
+    this.descTimer = setInterval(() => {
+      this.descTemp = this.descCurrent.slice(0, this.descTemp.length + 1)
+      this.setData({ desc: this.descTemp })
+      if (this.descTemp.length == this.descCurrent.length) {
+        clearInterval(this.descTimer)
+      }
+    }, 100)
+  },
+
+  startParticle: function () {
+    this.particleMgr.start(() => {
+      this.setData({ particles: this.particleMgr.particles })
+    })
+  },
+
+  stopParticle: function () {
+    this.particleMgr.stop(() => {
+      this.setData({ particles: this.particleMgr.particles })
+    })
   },
 
 })

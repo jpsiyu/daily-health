@@ -11,6 +11,8 @@ Page({
     gif: '/images/tiger.gif',
     percent: undefined,
     loaded: false,
+    desc: undefined,
+
   },
 
   /**
@@ -110,6 +112,7 @@ Page({
       percent: `${percent * 100}%`,
       gif: gif,
       loaded: loaded,
+      desc: app.appdata.getDesc(),
     })
   },
 

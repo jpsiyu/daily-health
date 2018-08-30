@@ -2,6 +2,17 @@
     <div class="score">
         <image src='{{gif}}'></image>
     </div>
+    <div class="tips-area">
+        <div class="tips">
+            <image src="/images/cat.png" />
+            <p>能量球：{{desc}}</p>
+        </div>
+        <div class="energy">
+            <div class="energy-cover" style="height:{{percent}}">
+                <image src="/images/green.gif" />
+            </div>
+        </div>
+    </div>
     <div class="project">
         <div wx:if="{{!midOn}}" class="project-item" bindtap="onItemBodyTap">
             <p>身体</p>
@@ -14,11 +25,6 @@
         </div>
         <div wx:if="{{!midOn}}" class="project-item" bindtap="onItemOtherTap">
             <p>爱好</p>
-        </div>
-    </div>
-    <div class="energy">
-        <div class="energy-cover" style="height:{{percent}}">
-            <image src="/images/green.gif" />
         </div>
     </div>
     <div class="project-mid" bindtap="onItemMidTap">

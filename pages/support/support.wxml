@@ -1,10 +1,23 @@
 <!-- pages/support/support.wxml -->
 <div class="support">
-    <div class="sponsor">
-        <p>Wechat Support</p>
-        <div class="qrcode"></div>
+    <div class='img-wrap'>
+        <image src="/images/cat.png" />
     </div>
-    <div class="contact">
-        <p>contact: cowbigcar@163.com</p>
+    <div class="item">
+        <p class="first">赞赏码</p>
+        <div class="pay-container">
+            <div class="pay-wrap">
+                <image src="/images/pay.jpeg" />
+            </div>
+            <p>截屏，扫一扫，打赏</p>
+        </div>
+    </div>
+    <div class="item">
+        <p class="first">PayPal</p>
+        <p class="second">cowbigcar@163.com</p>
+    </div>
+    <div class="item">
+        <p class="first">Email</p>
+        <p class="second">cowbigcar@163.com</p>
     </div>
 </div>
